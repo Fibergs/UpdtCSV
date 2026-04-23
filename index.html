@@ -104,12 +104,12 @@
                     <p class="sliders-intro">Adjust adoption rates below to model your facility's plastic reduction
                         potential.</p>
 
-                    <!-- Clinical Waste Bins -->
+                    <!-- Hazardous Waste Bins -->
                     <div class="category-group">
                         <div class="category-group-header">
-                            <img src="Action Icons/Hazardous Waste Bins.png" alt="Clinical Waste Bins"
+                            <img src="Action Icons/Hazardous Waste Bins.png" alt="Hazardous Waste Bins"
                                 class="cat-icon-sidebar">
-                            <span class="label">Clinical Waste Bins</span>
+                            <span class="label">Hazardous Waste Bins</span>
                             <span class="re-badges">
                                 <span class="re-badge re-replace">Replace</span>
                                 <span class="re-badge re-reduce">Reduce</span>
@@ -136,7 +136,7 @@
                             </div>
                             <div class="slider-row action-row-reduce">
                                 <img src="RE Icons/Reduce.png" alt="Reduce" class="re-icon">
-                                <label>Clinical Waste Reduction</label>
+                                <label>Hazardous Waste Reduction</label>
                                 <input type="range" data-control="bins_reduce" data-default="30" min="0" max="100"
                                     value="30">
                                 <span class="slider-value">30</span><span class="slider-unit">%</span>
@@ -510,7 +510,7 @@
                 <p class="impact-body">The categories below show where WoodSafe products deliver the greatest impact for
                     your facility.</p>
                 <p class="impact-top-cat">Highest impact category:
-                    <span id="topCategoryName" class="mint-pill">Clinical Waste Bins</span>
+                    <span id="topCategoryName" class="mint-pill">Hazardous Waste Bins</span>
                 </p>
             </div>
 
@@ -606,7 +606,7 @@
                 </div>
                 <div class="impact-card-right">
                     <div class="impact-card-info">
-                        <h3>Clinical Waste Bins</h3>
+                        <h3>Hazardous Waste Bins</h3>
                         <p class="stat-line">Before: <span id="pre_bins">&#8212;</span> kg</p>
                         <p class="stat-line">After: <span id="post_bins">&#8212;</span> kg</p>
                         <span id="change_bins" class="change-badge">&#8212;</span>
@@ -754,7 +754,7 @@
                     </div>
                     <div class="print-encouragement">
                         <strong>Exceptional progress!</strong> Diverting this volume of plastic significantly curtails
-                        fossil fuel demand and removes critical mass from your clinical waste stream.
+                        fossil fuel demand and removes critical mass from your hazardous waste stream.
                     </div>
                 </div>
 
@@ -828,7 +828,7 @@
                     </div>
                     <div class="print-encouragement">
                         <strong>Actionable parameters.</strong> This framework projects outcomes based on the targeted
-                        intervention rates logged during this session across facility clinical streams.
+                        intervention rates logged during this session across facility hazardous streams.
                     </div>
                 </div>
 
@@ -1027,7 +1027,7 @@
                 // Update highest-impact category badge
                 var cats = results.categories;
                 var names = {
-                    bins: 'Clinical Waste Bins',
+                    bins: 'Hazardous Waste Bins',
                     gloves: 'Gloves',
                     pipettes: 'Pipette Tips',
                     tubes: 'Tubes',
@@ -1302,10 +1302,10 @@
                     if (glovePct > 0) {
                         showCalcToast(
                             'Reducing glove usage by ' + glovePct + '% contributes an additional +' + contrib +
-                            '% reduction to Clinical Waste Bins — gloves account for ~10% of clinical waste bin volume.'
+                            '% reduction to Hazardous Waste Bins — gloves account for ~10% of hazardous waste bin volume.'
                         );
                     }
-                    // Flash the Clinical Waste Reduction row to show the linked effect
+                    // Flash the Hazardous Waste Reduction row to show the linked effect
                     var binInput = document.querySelector('input[data-control="bins_reduce"]');
                     if (binInput) {
                         var row = binInput.closest('.slider-row');
