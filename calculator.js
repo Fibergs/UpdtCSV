@@ -44,7 +44,7 @@ class PlasticCalculator {
         // WoodSafe Bio80 reduces plastic by 80% per bin switched (Part 2.2)
         this.woodsafe_plastic_reduction = 0.80;
 
-        // Gloves account for ~10% of clinical waste bin volume (Part 2.4)
+        // Gloves account for ~10% of hazardous waste bin volume (Part 2.4)
         // Reducing gloves by 1% therefore reduces bin usage by 0.1%
         this.glove_bin_coefficient = 0.10;
 
