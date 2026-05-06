@@ -56,6 +56,16 @@
                 </svg>
                 <span class="nav-label">Print Studio</span>
             </a>
+            <a class="nav-item" data-page-target="setup" role="button" tabindex="0">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="1.5" y="5" width="11" height="8" rx="1" />
+                    <path d="M4.5 13V9.5h2V13" />
+                    <rect x="8" y="9.5" width="2" height="2" rx="0.3" />
+                    <path d="M1.5 5L7 2l5.5 3" />
+                </svg>
+                <span class="nav-label">Facility Setup</span>
+            </a>
             <a class="nav-item" data-page-target="updates" role="button" tabindex="0">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -966,6 +976,330 @@
             </div>
         </div><!-- /page-updates -->
 
+        <!-- ──────────── PAGE 5: FACILITY SETUP ──────────── -->
+        <div id="page-setup" data-page="setup" style="display:none;opacity:0">
+
+            <div class="impact-callout" style="margin-bottom: 24px;">
+                <p class="impact-heading">Facility Configuration</p>
+                <p class="impact-body">Calibrate the simulator to your facility's real baseline. Enter your annual
+                    inventory, procurement volumes, and economic parameters. Changes here are exploratory and do not yet
+                    affect the calculator engine.</p>
+            </div>
+
+            <div class="setup-bento-grid">
+
+                <!-- ── Card 1: Waste Bin Inventory (wide) ── -->
+                <div class="bento-cell setup-card-wide">
+                    <div class="setup-card-header">
+                        <div>
+                            <div class="setup-card-overline">Waste Bin Inventory</div>
+                            <div class="setup-card-title">Annual Hazardous Waste Bin Consumption</div>
+                        </div>
+                        <button class="btn-load-defaults" data-defaults-target="bins">Load Uppsala Defaults</button>
+                    </div>
+
+                    <div class="setup-input-row">
+                        <div>
+                            <div class="setup-input-label">50L Industrial Bin</div>
+                            <div class="setup-input-sub">Reference weight: 2.055 kg/unit</div>
+                        </div>
+                        <input type="number" class="setup-number-input" id="fc-bins-L50" value="8" min="0" step="1">
+                        <span class="setup-input-unit">units/yr</span>
+                    </div>
+                    <div class="setup-input-row">
+                        <div>
+                            <div class="setup-input-label">25L Standard Bin</div>
+                            <div class="setup-input-sub">Reference weight: 1.325 kg/unit</div>
+                        </div>
+                        <input type="number" class="setup-number-input" id="fc-bins-L25" value="6" min="0" step="1">
+                        <span class="setup-input-unit">units/yr</span>
+                    </div>
+                    <div class="setup-input-row">
+                        <div>
+                            <div class="setup-input-label">12L Medium Bin</div>
+                            <div class="setup-input-sub">Reference weight: 0.650 kg/unit</div>
+                        </div>
+                        <input type="number" class="setup-number-input" id="fc-bins-L12" value="4" min="0" step="1">
+                        <span class="setup-input-unit">units/yr</span>
+                    </div>
+                    <div class="setup-input-row">
+                        <div>
+                            <div class="setup-input-label">6L Small Bin</div>
+                            <div class="setup-input-sub">Reference weight: 0.350 kg/unit</div>
+                        </div>
+                        <input type="number" class="setup-number-input" id="fc-bins-L6" value="4" min="0" step="1">
+                        <span class="setup-input-unit">units/yr</span>
+                    </div>
+                    <div class="setup-input-row">
+                        <div>
+                            <div class="setup-input-label">3L Micro Bin</div>
+                            <div class="setup-input-sub">Reference weight: 0.220 kg/unit</div>
+                        </div>
+                        <input type="number" class="setup-number-input" id="fc-bins-L3" value="3" min="0" step="1">
+                        <span class="setup-input-unit">units/yr</span>
+                    </div>
+                    <div class="setup-input-row">
+                        <div>
+                            <div class="setup-input-label">2L Nano Bin</div>
+                            <div class="setup-input-sub">Reference weight: 0.180 kg/unit</div>
+                        </div>
+                        <input type="number" class="setup-number-input" id="fc-bins-L2" value="2" min="0" step="1">
+                        <span class="setup-input-unit">units/yr</span>
+                    </div>
+
+                    <div class="setup-subtotal-row">
+                        <span class="setup-subtotal-label">Estimated annual plastic mass</span>
+                        <span class="setup-subtotal-value" id="fc-bins-total"
+                            style="color: var(--accent-mint);">31.0</span>
+                        <span class="setup-subtotal-unit">kg</span>
+                    </div>
+                </div>
+
+                <!-- ── Card 2: Glove Procurement ── -->
+                <div class="bento-cell">
+                    <div class="setup-card-header">
+                        <div>
+                            <div class="setup-card-overline">Glove Procurement</div>
+                            <div class="setup-card-title">Annual Volume &amp; Material</div>
+                        </div>
+                        <button class="btn-load-defaults" data-defaults-target="gloves">Defaults</button>
+                    </div>
+
+                    <div class="setup-input-row">
+                        <div>
+                            <div class="setup-input-label">Annual Unit Consumption</div>
+                            <div class="setup-input-sub">Individual gloves per year</div>
+                        </div>
+                        <input type="number" class="setup-number-input" id="fc-gloves-units" value="4334" min="0"
+                            step="100">
+                        <span class="setup-input-unit">units</span>
+                    </div>
+                    <div class="setup-input-row">
+                        <div>
+                            <div class="setup-input-label">Weight per Glove</div>
+                            <div class="setup-input-sub">Single-use standard</div>
+                        </div>
+                        <input type="number" class="setup-number-input" id="fc-gloves-weight" value="6" min="1" max="20"
+                            step="0.5">
+                        <span class="setup-input-unit">g/unit</span>
+                    </div>
+
+                    <div style="margin-top: 14px;">
+                        <div class="setup-input-label" style="margin-bottom: 8px;">Material Classification</div>
+                        <div class="setup-material-toggle">
+                            <button class="setup-toggle-btn active" data-material="vinyl">Vinyl</button>
+                            <button class="setup-toggle-btn" data-material="nitrile">Nitrile</button>
+                            <button class="setup-toggle-btn" data-material="latex">Latex</button>
+                        </div>
+                    </div>
+
+                    <div class="setup-subtotal-row" style="margin-top: 20px;">
+                        <span class="setup-subtotal-label">Est. annual plastic mass</span>
+                        <span class="setup-subtotal-value" id="fc-gloves-total"
+                            style="color: var(--accent-cyan);">26.0</span>
+                        <span class="setup-subtotal-unit">kg</span>
+                    </div>
+                </div>
+
+                <!-- ── Card 3: Lab Consumables (wide) ── -->
+                <div class="bento-cell setup-card-wide">
+                    <div class="setup-card-header">
+                        <div>
+                            <div class="setup-card-overline">Lab Consumables</div>
+                            <div class="setup-card-title">Annual Plastic Mass by Consumable Category</div>
+                        </div>
+                        <button class="btn-load-defaults" data-defaults-target="consumables">Load Uppsala
+                            Defaults</button>
+                    </div>
+
+                    <span class="setup-subsection-label" style="color: #A78BFA;">Pipette Tips</span>
+                    <div class="setup-input-row">
+                        <div>
+                            <div class="setup-input-label">Large Tips (1000 µL)</div>
+                        </div>
+                        <input type="number" class="setup-number-input" id="fc-pip-large" value="11.74" min="0"
+                            step="0.1">
+                        <span class="setup-input-unit">kg/yr</span>
+                    </div>
+                    <div class="setup-input-row">
+                        <div>
+                            <div class="setup-input-label">Medium Tips (200 µL)</div>
+                        </div>
+                        <input type="number" class="setup-number-input" id="fc-pip-medium" value="7.82" min="0"
+                            step="0.1">
+                        <span class="setup-input-unit">kg/yr</span>
+                    </div>
+                    <div class="setup-input-row">
+                        <div>
+                            <div class="setup-input-label">Small Tips (10 µL)</div>
+                        </div>
+                        <input type="number" class="setup-number-input" id="fc-pip-small" value="0.44" min="0"
+                            step="0.01">
+                        <span class="setup-input-unit">kg/yr</span>
+                    </div>
+
+                    <span class="setup-subsection-label" style="color: #F59E0B; margin-top: 14px;">Tubes</span>
+                    <div class="setup-input-row">
+                        <div>
+                            <div class="setup-input-label">Large Tubes (50 mL Falcon)</div>
+                        </div>
+                        <input type="number" class="setup-number-input" id="fc-tubes-large" value="10.15" min="0"
+                            step="0.1">
+                        <span class="setup-input-unit">kg/yr</span>
+                    </div>
+                    <div class="setup-input-row">
+                        <div>
+                            <div class="setup-input-label">Small Tubes (15 mL)</div>
+                        </div>
+                        <input type="number" class="setup-number-input" id="fc-tubes-small" value="1.85" min="0"
+                            step="0.1">
+                        <span class="setup-input-unit">kg/yr</span>
+                    </div>
+
+                    <span class="setup-subsection-label" style="color: #F87171; margin-top: 14px;">Cell Culture</span>
+                    <div class="setup-input-row">
+                        <div>
+                            <div class="setup-input-label">Cell Culture Items</div>
+                            <div class="setup-input-sub">Flasks, dishes, multi-well plates combined</div>
+                        </div>
+                        <input type="number" class="setup-number-input" id="fc-cell-culture" value="11.0" min="0"
+                            step="0.1">
+                        <span class="setup-input-unit">kg/yr</span>
+                    </div>
+
+                    <div class="setup-subtotal-row">
+                        <span class="setup-subtotal-label">Total consumables mass</span>
+                        <span class="setup-subtotal-value" id="fc-consumables-total" style="color: #A78BFA;">43.0</span>
+                        <span class="setup-subtotal-unit">kg</span>
+                    </div>
+                </div>
+
+                <!-- ── Card 4: Facility Economics ── -->
+                <div class="bento-cell">
+                    <div class="setup-card-header">
+                        <div>
+                            <div class="setup-card-overline">Facility Economics</div>
+                            <div class="setup-card-title">Stakeholder Profile &amp; Cost Parameters</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 16px;">
+                        <div class="setup-input-label" style="margin-bottom: 8px;">Stakeholder Type</div>
+                        <select class="setup-select" id="fc-stakeholder">
+                            <option value="healthcare">Healthcare (Hospital / Clinic)</option>
+                            <option value="research">Research Institute</option>
+                            <option value="university">University / Academia</option>
+                        </select>
+                    </div>
+
+                    <div class="setup-input-label" style="margin-bottom: 3px;">Hazardous Waste Disposal Fee</div>
+                    <div class="setup-input-sub" style="margin-bottom: 10px;">Current rate paid per kg of hazardous
+                        plastic waste</div>
+                    <div class="setup-fee-row">
+                        <span class="setup-fee-currency">SEK</span>
+                        <input type="number" class="setup-fee-input" id="fc-fee-sek" value="45" min="0" step="1">
+                        <span class="setup-fee-currency">/ kg</span>
+                    </div>
+                    <div class="setup-fee-row">
+                        <span class="setup-fee-currency">USD</span>
+                        <input type="number" class="setup-fee-input" id="fc-fee-usd" value="4.29" min="0" step="0.1">
+                        <span class="setup-fee-currency">/ kg</span>
+                    </div>
+                    <div style="font-size: 10px; color: var(--text-muted); margin-top: 6px;">Approx. rate: 1 USD ≈ 10.5
+                        SEK</div>
+
+                    <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border);">
+                        <div class="setup-input-label" style="margin-bottom: 6px;">Estimated Annual Disposal Cost</div>
+                        <div style="display: flex; align-items: baseline; gap: 6px;">
+                            <span
+                                style="font-family: 'Fraunces', serif; font-size: 28px; font-weight: 800; color: var(--accent-cost); line-height: 1;"
+                                id="fc-annual-cost-sek">4,590</span>
+                            <span style="font-size: 13px; color: var(--text-muted);">SEK / yr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Card 5: Live Summary (full width) ── -->
+                <div class="bento-cell" style="grid-column: 1 / -1;">
+                    <div class="setup-card-header">
+                        <div>
+                            <div class="setup-card-overline">Live Summary</div>
+                            <div class="setup-card-title">Plastic Profile — Baseline Distribution by Category</div>
+                        </div>
+                        <div style="text-align: right; flex-shrink: 0;">
+                            <span
+                                style="font-family: 'Fraunces', serif; font-size: 26px; font-weight: 800; color: var(--accent-green); line-height: 1;"
+                                id="fc-total-kg">100.0</span>
+                            <span style="font-size: 13px; color: var(--text-muted);"> kg total</span>
+                        </div>
+                    </div>
+
+                    <div class="setup-donut-wrap">
+                        <!-- Donut chart SVG — segments populated by setup.js -->
+                        <svg id="fc-donut-svg" width="180" height="180" viewBox="0 0 180 180" style="flex-shrink: 0;">
+                            <circle cx="90" cy="90" r="66" fill="none" stroke="var(--ring-track)" stroke-width="24" />
+                            <circle id="fc-seg-bins" cx="90" cy="90" r="66" fill="none" stroke="#4ECBA0"
+                                stroke-width="24" stroke-linecap="butt" transform="rotate(-90 90 90)"
+                                style="stroke-dasharray:0 414.69; transition: stroke-dasharray 0.55s ease, stroke-dashoffset 0.55s ease;" />
+                            <circle id="fc-seg-gloves" cx="90" cy="90" r="66" fill="none" stroke="#00AEEF"
+                                stroke-width="24" stroke-linecap="butt" transform="rotate(-90 90 90)"
+                                style="stroke-dasharray:0 414.69; transition: stroke-dasharray 0.55s ease, stroke-dashoffset 0.55s ease;" />
+                            <circle id="fc-seg-pipettes" cx="90" cy="90" r="66" fill="none" stroke="#A78BFA"
+                                stroke-width="24" stroke-linecap="butt" transform="rotate(-90 90 90)"
+                                style="stroke-dasharray:0 414.69; transition: stroke-dasharray 0.55s ease, stroke-dashoffset 0.55s ease;" />
+                            <circle id="fc-seg-tubes" cx="90" cy="90" r="66" fill="none" stroke="#F59E0B"
+                                stroke-width="24" stroke-linecap="butt" transform="rotate(-90 90 90)"
+                                style="stroke-dasharray:0 414.69; transition: stroke-dasharray 0.55s ease, stroke-dashoffset 0.55s ease;" />
+                            <circle id="fc-seg-culture" cx="90" cy="90" r="66" fill="none" stroke="#F87171"
+                                stroke-width="24" stroke-linecap="butt" transform="rotate(-90 90 90)"
+                                style="stroke-dasharray:0 414.69; transition: stroke-dasharray 0.55s ease, stroke-dashoffset 0.55s ease;" />
+                            <text id="fc-donut-center-val" x="90" y="86" text-anchor="middle" dominant-baseline="middle"
+                                style="font-family: Fraunces, serif; font-size: 22px; font-weight: 800; fill: var(--text-primary);">100</text>
+                            <text x="90" y="104" text-anchor="middle"
+                                style="font-size: 11px; fill: var(--text-muted); font-family: Inter, sans-serif;">kg
+                                total</text>
+                        </svg>
+
+                        <!-- Legend -->
+                        <div class="setup-donut-legend">
+                            <div class="setup-legend-row">
+                                <div class="setup-legend-dot" style="background:#4ECBA0;"></div>
+                                <span class="setup-legend-name">Hazardous Waste Bins</span>
+                                <span class="setup-legend-val" id="fc-leg-bins">31.0 kg</span>
+                                <span class="setup-legend-pct" id="fc-leg-bins-pct">31%</span>
+                            </div>
+                            <div class="setup-legend-row">
+                                <div class="setup-legend-dot" style="background:#00AEEF;"></div>
+                                <span class="setup-legend-name">Gloves</span>
+                                <span class="setup-legend-val" id="fc-leg-gloves">26.0 kg</span>
+                                <span class="setup-legend-pct" id="fc-leg-gloves-pct">26%</span>
+                            </div>
+                            <div class="setup-legend-row">
+                                <div class="setup-legend-dot" style="background:#A78BFA;"></div>
+                                <span class="setup-legend-name">Pipette Tips</span>
+                                <span class="setup-legend-val" id="fc-leg-pipettes">20.0 kg</span>
+                                <span class="setup-legend-pct" id="fc-leg-pipettes-pct">20%</span>
+                            </div>
+                            <div class="setup-legend-row">
+                                <div class="setup-legend-dot" style="background:#F59E0B;"></div>
+                                <span class="setup-legend-name">Tubes</span>
+                                <span class="setup-legend-val" id="fc-leg-tubes">12.0 kg</span>
+                                <span class="setup-legend-pct" id="fc-leg-tubes-pct">12%</span>
+                            </div>
+                            <div class="setup-legend-row">
+                                <div class="setup-legend-dot" style="background:#F87171;"></div>
+                                <span class="setup-legend-name">Cell Culture Items</span>
+                                <span class="setup-legend-val" id="fc-leg-culture">11.0 kg</span>
+                                <span class="setup-legend-pct" id="fc-leg-culture-pct">11%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /setup-bento-grid -->
+
+        </div><!-- /page-setup -->
+
     </main>
 
     <!-- Gloves → Bins dependency toast (Part 2.4) -->
@@ -989,6 +1323,7 @@
     <script src="calculator.js"></script>
     <script src="gauges.js"></script>
     <script src="controls.js"></script>
+    <script src="setup.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
